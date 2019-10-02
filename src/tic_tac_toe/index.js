@@ -30,6 +30,20 @@ function calculateWinner(squares) {
   return null;
 }
 
+function calculateRow(n) {
+  const maxRow = 3;
+  const row = Math.floor(n / 3) + 1;
+
+  return row;
+}
+
+function calculateCol(n) {
+  const maxCol = 3;
+  const col = (n % 3) + 1;
+
+  return col;
+}
+
 class Board extends React.Component {
   renderSquare(i) {
     return (
@@ -77,6 +91,8 @@ export default class Game extends React.Component {
     this.state = {
       history: [{
         squares: Array(9).fill(null),
+        col: 0,
+        row: 0,
       }],
       stepNumber: 0,
       xIsNext: true,
@@ -94,6 +110,8 @@ export default class Game extends React.Component {
     this.setState({
       history: history.concat({
         squares: squares,
+        col: calculateCol(i),
+        row: calculateRow(i),
       }),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
@@ -109,7 +127,7 @@ export default class Game extends React.Component {
 
   render() {
     const history = this.state.history;
-    const current = history[this.state.stepNumber]; 
+    const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
@@ -119,6 +137,8 @@ export default class Game extends React.Component {
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <span>{step.col}列目</span>
+          <span>{step.row}行目</span>
         </li>
       );
     });
