@@ -3,11 +3,45 @@ import './App.css';
 import TodoList from './TodoList';
 
 export default class App extends React.Component {
-  render () {
-    return (
-      <div className="App">
-        <TodoList />
-      </div>
-    )
-  }
+    constructor () {
+        super()
+        this.state = {
+            items: [],
+            currentItems: {text: '', key: ''},
+        }
+    }
+
+    handleInput = e => {
+        const itemText = e.target.value
+        const currentItems = {text: itemText, key: Date.now()}
+        this.setState({
+            currentItems,
+        })
+    }
+
+    addItem = e => {
+        e.preventDefault()
+        const newItem = this.state.currentItems
+        if (newItem.text !== '') {
+            console.log(newItem)
+            const items = [...this.state.items, newItem]
+            this.setState({
+                items: items,
+                currentItems: {text: '', key: ''},
+            })
+        }
+    }
+
+    render () {
+        return (
+          <div className="App">
+            <TodoList 
+                addItem={this.addItem}
+                inputElement={this.inputElement}
+                handleInput={this.handleInput}
+                currentItem={this.state.currentItems}
+                 />
+          </div>
+        )
+    }
 }
