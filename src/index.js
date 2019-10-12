@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import Game from './tic_tac_toe/index';
-import App from './App';
+import App from './todo/App';
 
 ReactDOM.render(
   <App />,
