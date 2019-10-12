@@ -2,10 +2,9 @@ import React from 'react';
 
 export default class TodoList extends React.Component {
     componentDidUpdate() {
-        console.log(this.props)
         this.props.inputElement.current.focus()
-        //???????????
     }
+
     render() {
         return (
             <div className="todoListMain">

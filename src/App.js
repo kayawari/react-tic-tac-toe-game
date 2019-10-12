@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css';
 import TodoList from './TodoList';
+import TodoItems from './TodoItems';
 
 export default class App extends React.Component {
     constructor () {
@@ -9,11 +10,14 @@ export default class App extends React.Component {
             items: [],
             currentItems: {text: '', key: ''},
         }
+        this.inputElement = React.createRef();
     }
+
 
     handleInput = e => {
         const itemText = e.target.value
         const currentItems = {text: itemText, key: Date.now()}
+        console.log(currentItems)
         this.setState({
             currentItems,
         })
@@ -41,6 +45,9 @@ export default class App extends React.Component {
                 handleInput={this.handleInput}
                 currentItem={this.state.currentItems}
                  />
+            <TodoItems
+                entries={this.state.items}
+                />
           </div>
         )
     }
