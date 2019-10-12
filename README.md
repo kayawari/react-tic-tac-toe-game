@@ -68,6 +68,25 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 
-### References
+### 参考書籍
 
+- 公式Doc（これが一番勉強になる）
+ - https://ja.reactjs.org/docs/getting-started.html
+- Reduxの公式
+ - https://react-redux.js.org/
+- react routerの公式
+ - https://reacttraining.com/react-router/web/guides/quick-start
+- awesome系
+ - https://github.com/enaqx/awesome-react
+ - https://github.com/brillout/awesome-react-components
+ - https://github.com/jondot/awesome-react-native
+- https://awesomereact.com/
+
+### JS関連
+
+- js関連で詰まったら、この辺見るのが良さそう
+ - https://ja.reactjs.org/docs/getting-started.html#javascript-resources
+- https://medium.com/js-geek
+
+### 今まで参考にさせてもらったURLたち
 - https://medium.com/js-geek/create-a-simple-todo-app-in-react-72d9341a7e6c
