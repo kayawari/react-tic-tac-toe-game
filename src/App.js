@@ -13,11 +13,9 @@ export default class App extends React.Component {
         this.inputElement = React.createRef();
     }
 
-
     handleInput = e => {
         const itemText = e.target.value
         const currentItems = {text: itemText, key: Date.now()}
-        console.log(currentItems)
         this.setState({
             currentItems,
         })
@@ -36,6 +34,15 @@ export default class App extends React.Component {
         }
     }
 
+    deleteItem = key => {
+        const filteredItems = this.state.items.filter(item => {
+            return item.key !== key
+        })
+        this.setState({
+            items: filteredItems
+        })
+    }
+
     render () {
         return (
           <div className="App">
@@ -47,6 +54,7 @@ export default class App extends React.Component {
                  />
             <TodoItems
                 entries={this.state.items}
+                deleteItem={this.deleteItem}
                 />
           </div>
         )
